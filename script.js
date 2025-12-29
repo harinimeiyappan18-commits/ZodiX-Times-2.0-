@@ -104,3 +104,44 @@ if (myList) {
       `).join("");
     });
 }
+// 🛡️ ADMIN LOAD SUBMISSIONS
+const adminList = document.getElementById("adminList");
+
+if (adminList) {
+  const token = localStorage.getItem("token");
+
+  fetch("http://localhost:4000/api/admin/submissions", {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json())
+    .then(data => {
+      adminList.innerHTML = data.map(s => `
+        <div class="admin-card">
+          <h3>${s.title}</h3>
+          <p><strong>Type:</strong> ${s.type}</p>
+          <p>${s.content}</p>
+          <span class="admin-status">${s.status}</span>
+
+          <div class="admin-actions">
+            <button onclick="review(${s.id}, 'approved')">⭐ Approve</button>
+            <button onclick="review(${s.id}, 'edits')">💫 Edits</button>
+            <button onclick="review(${s.id}, 'rejected')">❌ Reject</button>
+          </div>
+        </div>
+      `).join("");
+    });
+}
+
+// 🛡️ REVIEW ACTION
+function review(id, status) {
+  const token = localStorage.getItem("token");
+
+  fetch(`http://localhost:4000/api/admin/review/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`
+    },
+    body: JSON.stringify({ status })
+  }).then(() => location.reload());
+}

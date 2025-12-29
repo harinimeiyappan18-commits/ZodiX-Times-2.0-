@@ -85,3 +85,22 @@ if (loginForm) {
     }
   });
 }
+// 🪐 LOAD ASTR0UT SUBMISSIONS
+const myList = document.getElementById("myList");
+
+if (myList) {
+  const token = localStorage.getItem("token");
+
+  fetch("http://localhost:4000/api/submissions/mine", {
+    headers: { Authorization: `Bearer ${token}` }
+  })
+    .then(res => res.json())
+    .then(data => {
+      myList.innerHTML = data.map(s => `
+        <div class="admin-card">
+          <h3>${s.title}</h3>
+          <p>Status: ${s.status}</p>
+        </div>
+      `).join("");
+    });
+}

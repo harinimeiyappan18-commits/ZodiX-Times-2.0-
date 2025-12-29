@@ -41,3 +41,32 @@ document.querySelectorAll(".admin-card").forEach(card => {
     status.style.color = "#e53935";
   });
 });
+// 🔐 LOGIN
+const loginForm = document.getElementById("loginForm");
+
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const res = await fetch("http://localhost:4000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.token) {
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("role", data.role);
+
+      window.location.href =
+        data.role === "admin" ? "admin.html" : "submit.html";
+    } else {
+      alert("❌ Invalid login");
+    }
+  });
+}

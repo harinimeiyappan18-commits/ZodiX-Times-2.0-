@@ -273,3 +273,72 @@ textarea:focus {
 .hidden {
   display: none;
 }
+/* 🛡️ Admin Dashboard */
+
+.admin-container {
+  max-width: 900px;
+  margin: 40px auto 80px;
+  padding: 20px;
+}
+
+.admin-card {
+  background: var(--card);
+  padding: 26px;
+  border-radius: 22px;
+  margin-bottom: 28px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.08);
+  position: relative;
+}
+
+.admin-card h3 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 6px;
+}
+
+.admin-content {
+  margin: 14px 0;
+  opacity: 0.85;
+}
+
+.admin-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.admin-actions button,
+.admin-actions .email {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.approve {
+  background: #aeeedb;
+}
+
+.edit {
+  background: #ffe08a;
+}
+
+.reject {
+  background: #f3b5cc;
+}
+
+.email {
+  background: var(--accent);
+  color: white;
+}
+
+.admin-status {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  font-size: 0.75rem;
+  opacity: 0.7;
+}

@@ -24,45 +24,36 @@
       Our admins will review it gently 🌙
     </p>
 
-    <form id="submissionForm">
-      <label>
-        🪐 Title
-        <input type="text" id="title" required placeholder="Eg: Why Saturn’s Rings Are Disappearing">
-      </label>
+<form id="submissionForm">
+  <label>
+    🪐 Title
+    <input type="text" id="title" required>
+  </label>
 
-      <label>
-        📚 Content Type
-        <select id="type" required>
-          <option value="">Select type</option>
-          <option>📰 Newspaper Clipping</option>
-          <option>🌍 Space News</option>
-          <option>✍️ Blog Post</option>
-          <option>📄 Article</option>
-        </select>
-      </label>
+  <label>
+    📚 Content Type
+    <select id="type" required>
+      <option value="">Select type</option>
+      <option>📰 Newspaper Clipping</option>
+      <option>🌍 Space News</option>
+      <option>✍️ Blog Post</option>
+      <option>📄 Article</option>
+    </select>
+  </label>
 
-      <label>
-        ✨ Your Story
-        <textarea id="content" rows="6" required placeholder="Write your space magic here..."></textarea>
-      </label>
+  <label>
+    ✨ Your Story
+    <textarea id="content" rows="6" required></textarea>
+  </label>
 
-      <label>
-        🔗 Source Links (required for news/clippings)
-        <input type="url" id="source" placeholder="https://example.com">
-      </label>
+  <label>
+    🔗 Source Link
+    <input type="url" id="source">
+  </label>
 
-      <button type="submit" class="cta">🌠 Send Into Orbit</button>
-    </form>
+  <button type="submit" class="cta">🌠 Send Into Orbit</button>
+</form>
 
-    <!-- 🌙 Submission Status -->
-    <div id="statusCard" class="status-card hidden">
-      <h3>🌙 In Orbit</h3>
-      <p>
-        Your submission is floating through space and will be reviewed soon ✨  
-        We’ll reach out if we need more stardust 💫
-      </p>
-    </div>
-  </section>
 
   <footer>
     <p>Admin contact: admin.astrouts@gmail.com ✨</p>

@@ -1,3 +1,10 @@
+<script>
+  if (localStorage.getItem("role") !== "admin") {
+    window.location.href = "login.html";
+  }
+</script>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,50 +30,9 @@
       Review with care ✨ Keep the cosmos clean 🌌
     </p>
 
-    <!-- 📝 Submission Card -->
-    <div class="admin-card">
-      <h3>🪐 Saturn’s Rings Are Fading</h3>
-      <p><strong>Astrout:</strong> Luna</p>
-      <p><strong>Type:</strong> 🌍 Space News</p>
-      <p class="admin-content">
-        Saturn’s rings are slowly disappearing due to gravitational effects...
-      </p>
-      <p><strong>Source:</strong> 
-        <a href="#" target="_blank">https://space-news.example</a>
-      </p>
-
-      <div class="admin-actions">
-        <button class="approve">⭐ Approve</button>
-        <button class="edit">💫 Needs Edits</button>
-        <button class="reject">❌ Reject</button>
-        <a class="email" href="mailto:admin.astrouts@gmail.com?subject=ZodiX-Times Submission Feedback">
-          ✉️ Email Astrout
-        </a>
-      </div>
-
-      <span class="admin-status">🌙 Pending Review</span>
-    </div>
-
-    <!-- 📝 Another Submission -->
-    <div class="admin-card">
-      <h3>✨ What Is a Black Hole?</h3>
-      <p><strong>Astrout:</strong> Orion</p>
-      <p><strong>Type:</strong> ✍️ Blog Post</p>
-      <p class="admin-content">
-        Black holes are regions of spacetime where gravity is extremely strong...
-      </p>
-
-      <div class="admin-actions">
-        <button class="approve">⭐ Approve</button>
-        <button class="edit">💫 Needs Edits</button>
-        <button class="reject">❌ Reject</button>
-        <a class="email" href="mailto:admin.astrouts@gmail.com?subject=ZodiX-Times Submission Feedback">
-          ✉️ Email Astrout
-        </a>
-      </div>
-
-      <span class="admin-status">🌙 Pending Review</span>
-    </div>
+    <!-- 🔥 LIVE DATA GOES HERE -->
+      <div id="adminList"></div>
+    
   </section>
 
   <footer>

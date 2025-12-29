@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Launch Your Story 🚀</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- 🌌 Navbar -->
+  <header class="navbar">
+    <h1>🌠 ZodiX-Times</h1>
+    <button id="themeToggle">🌙</button>
+  </header>
+
+  <!-- 🚀 Submission Form -->
+  <section class="submit-container">
+    <h2>🚀 Launch Your Story</h2>
+    <p class="submit-subtitle">
+      Share your cosmic thoughts with the universe ✨  
+      Our admins will review it gently 🌙
+    </p>
+
+    <form id="submissionForm">
+      <label>
+        🪐 Title
+        <input type="text" id="title" required placeholder="Eg: Why Saturn’s Rings Are Disappearing">
+      </label>
+
+      <label>
+        📚 Content Type
+        <select id="type" required>
+          <option value="">Select type</option>
+          <option>📰 Newspaper Clipping</option>
+          <option>🌍 Space News</option>
+          <option>✍️ Blog Post</option>
+          <option>📄 Article</option>
+        </select>
+      </label>
+
+      <label>
+        ✨ Your Story
+        <textarea id="content" rows="6" required placeholder="Write your space magic here..."></textarea>
+      </label>
+
+      <label>
+        🔗 Source Links (required for news/clippings)
+        <input type="url" id="source" placeholder="https://example.com">
+      </label>
+
+      <button type="submit" class="cta">🌠 Send Into Orbit</button>
+    </form>
+
+    <!-- 🌙 Submission Status -->
+    <div id="statusCard" class="status-card hidden">
+      <h3>🌙 In Orbit</h3>
+      <p>
+        Your submission is floating through space and will be reviewed soon ✨  
+        We’ll reach out if we need more stardust 💫
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Admin contact: admin.astrouts@gmail.com ✨</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

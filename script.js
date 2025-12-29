@@ -6,20 +6,35 @@ toggle.addEventListener("click", () => {
   root.setAttribute("data-theme", isDark ? "light" : "dark");
   toggle.textContent = isDark ? "🌙" : "☀️";
 });
-// 🚀 Submission Logic (Frontend MVP)
+// 🚀 REAL SUBMISSION
 const form = document.getElementById("submissionForm");
-const statusCard = document.getElementById("statusCard");
 
 if (form) {
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    // Fake submit delay ✨
-    setTimeout(() => {
+    const token = localStorage.getItem("token");
+
+    const res = await fetch("http://localhost:4000/api/submissions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({
+        title: title.value,
+        content: content.value,
+        type: type.value,
+        source: source.value
+      })
+    });
+
+    if (res.ok) {
+      alert("🌙 Submission sent into orbit!");
       form.reset();
-      statusCard.classList.remove("hidden");
-      statusCard.scrollIntoView({ behavior: "smooth" });
-    }, 600);
+    } else {
+      alert("❌ Submission failed");
+    }
   });
 }
 // 🛡️ Admin Review Actions

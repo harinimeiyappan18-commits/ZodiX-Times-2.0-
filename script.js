@@ -105,32 +105,43 @@ if (myList) {
     });
 }
 // 🛡️ ADMIN LOAD SUBMISSIONS
-const adminList = document.getElementById("adminList");
+adminList.innerHTML = data.map(s => {
+  let badge = "🟢 High Originality";
+  let color = "#4caf50";
 
-if (adminList) {
-  const token = localStorage.getItem("token");
+  if (s.originality < 70) {
+    badge = "🟠 Medium Originality";
+    color = "#ff9800";
+  }
 
-  fetch("http://localhost:4000/api/admin/submissions", {
-    headers: { Authorization: `Bearer ${token}` }
-  })
-    .then(res => res.json())
-    .then(data => {
-      adminList.innerHTML = data.map(s => `
-        <div class="admin-card">
-          <h3>${s.title}</h3>
-          <p><strong>Type:</strong> ${s.type}</p>
-          <p>${s.content}</p>
-          <span class="admin-status">${s.status}</span>
+  if (s.originality < 40) {
+    badge = "🔴 Low Originality";
+    color = "#e53935";
+  }
 
-          <div class="admin-actions">
-            <button onclick="review(${s.id}, 'approved')">⭐ Approve</button>
-            <button onclick="review(${s.id}, 'edits')">💫 Edits</button>
-            <button onclick="review(${s.id}, 'rejected')">❌ Reject</button>
-          </div>
-        </div>
-      `).join("");
-    });
-}
+  return `
+    <div class="admin-card">
+      <h3>${s.title}</h3>
+      <p><strong>Type:</strong> ${s.type}</p>
+      <p>${s.content}</p>
+
+      <p>
+        <strong>Originality:</strong>
+        <span style="color:${color}; font-weight:600;">
+          ${s.originality}% – ${badge}
+        </span>
+      </p>
+
+      <span class="admin-status">${s.status}</span>
+
+      <div class="admin-actions">
+        <button onclick="review(${s.id}, 'approved')">⭐ Approve</button>
+        <button onclick="review(${s.id}, 'edits')">💫 Needs Edits</button>
+        <button onclick="review(${s.id}, 'rejected')">❌ Reject</button>
+      </div>
+    </div>
+  `;
+}).join("");
 
 // 🛡️ REVIEW ACTION
 function review(id, status) {

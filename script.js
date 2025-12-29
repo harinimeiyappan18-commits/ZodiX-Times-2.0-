@@ -22,3 +22,22 @@ if (form) {
     }, 600);
   });
 }
+// 🛡️ Admin Review Actions
+document.querySelectorAll(".admin-card").forEach(card => {
+  const status = card.querySelector(".admin-status");
+
+  card.querySelector(".approve").addEventListener("click", () => {
+    status.textContent = "⭐ Approved";
+    status.style.color = "#4caf50";
+  });
+
+  card.querySelector(".edit").addEventListener("click", () => {
+    status.textContent = "💫 Needs Edits";
+    status.style.color = "#ff9800";
+  });
+
+  card.querySelector(".reject").addEventListener("click", () => {
+    status.textContent = "❌ Rejected";
+    status.style.color = "#e53935";
+  });
+});
